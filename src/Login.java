@@ -1,55 +1,59 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Login {
+public class Login extends JFrame {
+
+    public Login() {
+        JFrame miVentana = new JFrame("Luch");
+        miVentana.setSize(1000, 1000);
+        miVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel mainPanel = new JPanel(new GridLayout(1, 2));
+
+        JPanel panel1 = new JPanel();
+        panel1.setBackground(Color.red);
+
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(new GridBagLayout());
+
+        JPanel cuadros = new JPanel();
+        cuadros.setLayout(new GridLayout(2, 2, 10, 10));
+
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setForeground(Color.BLACK);
+        JTextField nameField = new JTextField(15);
+
+        JLabel passwordLabel = new JLabel("Password:");
+        passwordLabel.setForeground(Color.black);
+        JPasswordField passwordField = new JPasswordField(15);
+
+        JButton boton = new JButton("Login");
+        boton.setBounds(4,7,200,300);
+
+        cuadros.add(nameLabel);
+        cuadros.add(nameField);
+        cuadros.add(passwordLabel);
+        cuadros.add(passwordField);
+
+        GridBagConstraints grid = new GridBagConstraints();
+        grid.gridx = 0;
+        grid.gridy = 0;
+        grid.anchor = GridBagConstraints.CENTER;
+        panel2.add(cuadros, grid);
+
+        mainPanel.add(panel1);
+        mainPanel.add(panel2);
+
+        miVentana.add(mainPanel);
+        miVentana.setVisible(true);
+    }
+
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Login Screen");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-        frame.setLayout(new GridLayout(1, 2)); // Dividimos la ventana en dos columnas
-
-        // Panel izquierdo con color de fondo
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBackground(Color.red); // Puedes cambiar el color aquí
-
-        // Panel derecho con formulario de login
-        JPanel rightPanel = new JPanel();
-        rightPanel.setLayout(new GridBagLayout());
-        rightPanel.setBackground(Color.WHITE);
-
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5, 5, 5, 5); // Espacio entre componentes
-
-        JLabel userLabel = new JLabel("Username:");
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        rightPanel.add(userLabel, gbc);
-
-        JTextField userText = new JTextField(15);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        rightPanel.add(userText, gbc);
-
-        JLabel passLabel = new JLabel("Password:");
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        rightPanel.add(passLabel, gbc);
-
-        JPasswordField passText = new JPasswordField(15);
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        rightPanel.add(passText, gbc);
-
-        JButton loginButton = new JButton("Login");
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        rightPanel.add(loginButton, gbc);
-
-        // Añadir los paneles a la ventana
-        frame.add(leftPanel);
-        frame.add(rightPanel);
-
-        // Mostrar la ventana
-        frame.setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new Login();
+            }
+        });
     }
 }
