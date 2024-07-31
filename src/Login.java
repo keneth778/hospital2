@@ -3,14 +3,14 @@ import java.awt.*;
 
 public class Login {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Login");
+        JFrame frame = new JFrame("Login Screen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1080, 970);
-        frame.setLayout(new GridLayout(1, 2));
+        frame.setSize(400, 300);
+        frame.setLayout(new GridLayout(1, 2)); // Dividimos la ventana en dos columnas
 
         // Panel izquierdo con color de fondo
         JPanel leftPanel = new JPanel();
-        leftPanel.setBackground(Color.CYAN);
+        leftPanel.setBackground(Color.red); // Puedes cambiar el color aquí
 
         // Panel derecho con formulario de login
         JPanel rightPanel = new JPanel();
